@@ -1,0 +1,22 @@
+{
+  "name": "projeto-carro",
+  "version": "1.0.0",
+  "description": "Projeto de restful",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crcarvalho/restful-projeto-carro.git"
+  },
+  "author": "carlos carvalho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crcarvalho/restful-projeto-carro/issues"
+  },
+  "homepage": "https://github.com/crcarvalho/restful-projeto-carro#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
