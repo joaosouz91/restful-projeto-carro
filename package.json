@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/crcarvalho/restful-projeto-carro#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.0",
+    "nconf": "^0.10.0",
+    "swagger-jsdoc": "^3.2.8",
+    "swagger-ui-express": "^4.0.2"
   }
 }
