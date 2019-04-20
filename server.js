@@ -1,4 +1,5 @@
 const express = require("express");
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -288,4 +289,4 @@ mongoose.connection.on('error', function(err) {
     console.log('Mongoose default connection error: ' + err);
 });
 
-app.listen(3000);
+app.listen(port);
