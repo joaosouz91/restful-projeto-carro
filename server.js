@@ -253,7 +253,7 @@ app.put('/veiculo/deslocar/:id', function(req, res) {
                 carroObj.latitude = objetoJson.latitude;
                 carroObj.longitude = objetoJson.longitude;
 
-                var query = { 'id': candrroObj.id }
+                var query = { 'id': carroObj.id }
                 carroModel.findOneAndUpdate(query, carroObj, { upsert: true }, function(err, doc) {
                     if (err) {
                         console.log('Não foi possível solicitar o deslocamento do veículo. Erro: ' + err);
