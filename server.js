@@ -204,7 +204,7 @@ app.put('/veiculo/porta/:id', function(req, res) {
                         return res.send(500, { error: err });
                     }
                     console.log('A porta do carro foi ' + carroObj.porta);
-                    return res.status(200).send({ status: carroObj.porta });
+                    return res.status(200).send({ porta: carroObj.porta });
                 });
             } else {
                 res.status(400);
