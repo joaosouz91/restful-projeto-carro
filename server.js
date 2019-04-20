@@ -261,7 +261,7 @@ app.put('/veiculo/deslocar/:id', function(req, res) {
                     console.log('>>>>>>>>> O carro será deslocado para: ' + carroObj.latitude +
                         ' - ' + carroObj.longitude);
 
-                    return res.status(200).send({ status: carroObj.porta });
+                    return res.status(200).send({ carroObj: carroObj });
                 });
             } else {
                 res.status(400);
