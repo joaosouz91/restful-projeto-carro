@@ -22,6 +22,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.5.2",
     "nconf": "^0.10.0",
+    "nodemon": "^1.18.11",
     "swagger-jsdoc": "^3.2.9",
     "swagger-ui-express": "^4.0.2"
   }
