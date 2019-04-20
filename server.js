@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const CONNECTION_URL = "mongodb+srv://admin:163049@cluster0-gsqin.mongodb.net/projeto-carro?retryWrites=true";
+const CONNECTION_URL = "mongodb://vehiclecontrol:san46480@ds145356.mlab.com:45356/heroku_857jfl69";
 
 //const CONNECTION_URL = "mongodb+srv://admin:alwaysbegintran@cluster0-d7crm.mongodb.net/projeto-carro?retryWrites=true";
 
