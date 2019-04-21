@@ -49,7 +49,7 @@ var carroModel = mongoose.model('Carros', carroSchema);
  *                          "status": "Em trânsito"
  *                       }
  */
-app.post("/veiculo", (req, res) => {
+app.post("/v1/veiculo", (req, res) => {
 
     var carroJson = req.body;
     console.log(carroJson);
@@ -92,7 +92,7 @@ app.post("/veiculo", (req, res) => {
  *  @author: 31SCJ
  *  @param: id (Id do veículo que deseja o status)
  */
-app.get('/veiculo/status/:id', function(req, res) {
+app.get('/v1/veiculo/status/:id', function(req, res) {
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('Status do carro: ' + carroObj.status);
@@ -113,7 +113,8 @@ app.get('/veiculo/status/:id', function(req, res) {
                             "status": "Em trânsito"
                         } 
  */
-app.put('/veiculo/status/:id', function(req, res) {
+
+app.put('/v1/veiculo/status/:id', function(req, res) {
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('Antigo status do carro: ' + carroObj.status);
@@ -170,7 +171,8 @@ app.put('/veiculo/status/:id', function(req, res) {
                             "porta": "Abrir"
                         } 
  */
-app.put('/veiculo/porta/:id', function(req, res) {
+app.put('/v1/veiculo/porta/:id', function(req, res) {
+
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('>>>>>>>>> Carro: ' + carroObj);
@@ -227,7 +229,7 @@ app.put('/veiculo/porta/:id', function(req, res) {
                             "porta": "Abrir"
                         } 
  */
-app.put('/veiculo/deslocar/:id', function(req, res) {
+app.put('/v1/veiculo/deslocar/:id', function(req, res) {
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('>>>>>>>>> Carro: ' + carroObj);
@@ -290,3 +292,5 @@ mongoose.connection.on('error', function(err) {
 });
 
 app.listen(port);
+
+
