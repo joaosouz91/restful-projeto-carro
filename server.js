@@ -49,7 +49,7 @@ var carroModel = mongoose.model('Carros', carroSchema);
  *                          "status": "Em trânsito"
  *                       }
  */
-app.post("/v1/veiculo", (req, res) => {
+app.post("/v1/veiculos", (req, res) => {
 
     var carroJson = req.body;
     console.log(carroJson);
@@ -88,11 +88,32 @@ app.post("/v1/veiculo", (req, res) => {
 });
 
 /**
+ *  @description: Recupera lista de todos os carros
+ *  @author: 31SCJ
+ */
+app.get('/v1/veiculos', function(req, res) {
+    carroModel.find({}, function(erro, carros) {
+        var carrosMap = {};
+        if (carros) {
+            console.log('lista de carros: ' + carros);
+            carros.forEach(function(carro) {
+                carrosMap[carro.id] = carro;
+            });
+            res.status(200);
+            res.send(carrosMap);
+        } else {
+            res.status(404);
+            res.send("Carro não encontrado");
+        }
+    });
+})
+
+/**
  *  @description: Recupera o status do veículo atraves do Id
  *  @author: 31SCJ
  *  @param: id (Id do veículo que deseja o status)
  */
-app.get('/v1/veiculo/status/:id', function(req, res) {
+app.get('/v1/veiculos/status/:id', function(req, res) {
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('Status do carro: ' + carroObj.status);
@@ -114,7 +135,7 @@ app.get('/v1/veiculo/status/:id', function(req, res) {
                         } 
  */
 
-app.put('/v1/veiculo/status/:id', function(req, res) {
+app.put('/v1/veiculos/status/:id', function(req, res) {
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('Antigo status do carro: ' + carroObj.status);
@@ -171,7 +192,7 @@ app.put('/v1/veiculo/status/:id', function(req, res) {
                             "porta": "Abrir"
                         } 
  */
-app.put('/v1/veiculo/porta/:id', function(req, res) {
+app.put('/v1/veiculos/porta/:id', function(req, res) {
 
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
@@ -229,7 +250,7 @@ app.put('/v1/veiculo/porta/:id', function(req, res) {
                             "porta": "Abrir"
                         } 
  */
-app.put('/v1/veiculo/deslocar/:id', function(req, res) {
+app.put('/v1/veiculos/deslocar/:id', function(req, res) {
     carroModel.findOne({ id: req.params.id }, function(erro, carroObj) {
         if (carroObj) {
             console.log('>>>>>>>>> Carro: ' + carroObj);
